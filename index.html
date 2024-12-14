@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
+    body {
+      background: #06080D;
+      font-family: 'Play';
+      overflow-x: hidden !important;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+    }
+
+    .navbar-dark {
+      /* opacity: .9; */
+      /* background: #06080D; */
+      background: rgba(6, 8, 13, 0.9);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+    }
+
+    .text-p {
+      color: #2265B0;
+    }
+
+    .bg-p {
+      background: #2265B0;
+    }
+
+    .hero {
+      min-height: 100vh;
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    .btn-p {
+      /* background-color: #2265B0; */
+      color: white;
+      display: inline-flex;
+      border-radius: 0;
+      font-size: 16px;
+      line-height: 1;
+      padding: 10px 32px;
+      transition: all 0.3s ease-in-out;
+      /* From https://css.glass */
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-p-2 {
+      transition: all 0.3s ease-in-out;
+    }
+
+
+    .btn-p .icon-arrow-right,
+    .btn-p-2 .icon-arrow-right {
+      width: 15px;
+      transform: rotate(-45deg);
+      transform-origin: center;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .btn-p .icon-stars {
+      width: 20px;
+    }
+
+    .btn-p:hover {
+      color: white;
+      display: inline-flex;
+      border-radius: 0;
+      font-size: 16px;
+      line-height: 1;
+      padding: 10px 32px;
+      transition: all 0.3s ease-in-out;
+      /* From https://css.glass */
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transform: scale(1.1);
+    }
+
+    .btn-p:hover,
+    .btn-p-2:hover {
+      transition: all 0.3s ease-in-out;
+      transform: scale(1.1);
+    }
+
+    .btn-p:hover .icon-arrow-right,
+    .btn-p-2:hover .icon-arrow-right {
+      transition: all 0.3s ease-in-out;
+      transform: rotate(0deg);
+      transform-origin: center;
+    }
+
+    .btn-p:hover .icon-stars {
+      animation: blink 1s infinite;
+    }
+
+    .hero {
+      min-height: 100vh;
+      top: 0;
+    }
+
+    .hero {
+      background: url('./assets/bg.webp'), url('./assets/bg-grid.svg');
+      background-size: cover, auto;
+      background-repeat: no-repeat, repeat-y;
+      background-position: center center, top center;
+      height: 100%;
+      width: 100%;
+
+      /* position: absolute; */
+    }
+
+    .net-bg {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    .data-hero {
+      padding-top: 20vh;
+    }
+
+    .dashboard-img {
+      border: 30px solid rgba(255, 255, 255, 0.22);
+      border-radius: 50px;
+      z-index: 6;
+    }
+
+    .ai-job-2 {
+      width: 360px;
+      border: 15px solid rgba(255, 255, 255, 0.22);
+      border-radius: 50px;
+      position: absolute;
+      top: 30vh;
+      left: -40px;
+      transform: rotate(15deg);
+      transform-origin: center;
+      z-index: 3;
+    }
+
+    .ai-job-3 {
+      width: 360px;
+      border: 15px solid rgba(255, 255, 255, 0.22);
+      border-radius: 50px;
+      position: absolute;
+      top: 40vh;
+      right: -40px;
+      transform: rotate(-15deg);
+      transform-origin: center;
+      z-index: 3;
+    }
+
+    .ai-job-4 {
+      width: 360px;
+      border: 15px solid rgba(255, 255, 255, 0.22);
+      border-radius: 50px;
+      position: absolute;
+      top: 110vh;
+      left: -40px;
+      transform: rotate(-15deg);
+      transform-origin: center;
+      z-index: 3;
+    }
+
+    .ai-job-5 {
+      width: 360px;
+      border: 15px solid rgba(255, 255, 255, 0.22);
+      border-radius: 50px;
+      position: absolute;
+      top: 120vh;
+      right: -40px;
+      transform: rotate(15deg);
+      transform-origin: center;
+      z-index: 3;
+    }
+
+    .services {
+      min-height: 100vh;
+      padding-top: 20vh;
+    }
+
+    .services .my-card {
+      border-radius: 30px;
+      border: 2px solid #1C2229;
+    }
+
+    .services .my-card:hover {
+      transition: .5s all;
+      box-shadow: 0px 0px 20px #2265B0;
+      cursor: pointer;
+    }
+
+    .services .my-card .bg-card-round {
+      background-color: #1C2229;
+      height: 50px;
+      width: 50px;
+      border-radius: 100%;
+      transform: rotate(-45deg);
+      transform-origin: center;
+      transition: all 0.3s ease-in-out;
+      border: 5px solid #1C2229;
+    }
+
+    .services .my-card:hover .bg-card-round {
+      background-color: #2265B0;
+      transform: rotate(0deg);
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    /* keyframes */
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: .1;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container-fluid pt-3 navbar" id="navbar">
+    <div class="container py-2">
+      <div class="d-flex justify-content-between align-items-center col-12">
+        <div class="d-flex align-items-center">
+          <!-- <img src="./assets/grandpathway-logo.svg" alt="logo" height="50px"> -->
+          <img src="./assets/streamline_target-solid.svg" width="30px" alt="">
+          <h5 class="text-white m-0 ps-2">GradPathway</h5>
+        </div>
+        <div class="d-flex text-white">
+          <span class="px-3 d-flex align-items-center gap-2">
+            About
+            <img src="./assets/mingcute_down-line.svg" width="15px" alt="">
+          </span>
+          <span class="px-3 d-flex align-items-center gap-2">
+            Tools
+            <img src="./assets/mingcute_down-line.svg" width="15px" alt="">
+          </span>
+          <span class="px-3 d-flex align-items-center gap-2">
+            Services
+            <img src="./assets/mingcute_down-line.svg" width="15px" alt="">
+          </span>
+          <span class="px-3 d-flex align-items-center gap-2">
+            Join Us
+            <img src="./assets/mingcute_down-line.svg" width="15px" alt="">
+          </span>
+          <span class="px-3">
+            Contact
+          </span>
+          <span class="px-3">
+            Blogs
+          </span>
+
+        </div>
+        <div class="d-flex">
+          <button class="btn btn-p d-flex align-items-center gap-2 rounded-pill">
+            <span class="m-0">
+              Login
+            </span>
+            <img src="./assets/arrow-right.svg" class="icon-arrow-right" alt="">
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid hero">
+    <div class="row">
+
+      <!-- <img src="./assets/bg-grid.svg" class="net-bg" alt="bg svg"> -->
+      <div class="data-hero col-md-8 offset-md-2">
+        <h1 class="text-center text-white display-1 fw-bolder">Elevate Your Career</h1>
+        <p class="text-center text-white h4 col-md-10 offset-md-1">
+          Discover tailored coaching and proven methods to transform your job search and achieve career success.
+        </p>
+        <div class="d-flex justify-content-center mt-5 gap-4">
+          <button class="btn btn-p d-flex align-items-center gap-2 py-3 px-5 rounded-pill">
+            <span class="m-0">
+              GradPathway AI
+            </span>
+            <img src="./assets/bi_stars.svg" class="icon-stars" alt="">
+          </button>
+          <button class="btn btn-p-2 text-white d-flex align-items-center gap-2 rounded-pill px-5">
+            <span class="m-0">
+              Our Services
+            </span>
+            <img src="./assets/arrow-right.svg" class="icon-arrow-right" alt="">
+          </button>
+        </div>
+      </div>
+      <img src="./assets/ai-job-2.jpg" class="ai-job-2" id="ai-job-2" alt="">
+      <img src="./assets/ai-job-3.jpg" class="ai-job-3" id="ai-job-3" alt="">
+      <img src="./assets/ai-job-2.jpg" class="ai-job-4" id="ai-job-4" alt="">
+      <img src="./assets/ai-job-3.jpg" class="ai-job-5" id="ai-job-5" alt="">
+      <div class="d-flex col-md-8 offset-md-2 mt-5">
+        <img src="./assets/dashboard-big.jpg" width="100%" class="dashboard-img" alt="bg svg">
+      </div>
+    </div>
+  </div>
+
+  <div class="container services">
+    <div class="">
+      <div class="row">
+        <div class="d-flex col-md-12">
+          <div class="col-md-4 p-4">
+            <div class="col-md-12 d-flex my-card px-4 py-5">
+              <div class="col-10 text-white pe-4">
+                <h4>Discover Your Path</h4>
+                <p class="small m-0">
+                  Identify the Ideal Sector and Role Aligned to Your Goals by accessing the data that suits your skills
+                  and
+                  profile.
+                </p>
+              </div>
+              <div class="col-2 d-flex justify-content-center">
+                <span class="bg-card-round d-flex justify-content-center align-items-center">
+                  <img src="./assets/arrow-right.svg" alt="">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 p-4">
+            <div class="col-md-12 d-flex my-card px-4 py-5">
+              <div class="col-10 text-white pe-4">
+                <h4>Professional Presence</h4>
+                <p class="small m-0">
+                  Personalised Strategies and data of companies
+                  to
+                  Increase Your Profile Visibility and Attract Interview Calls.
+                </p>
+              </div>
+              <div class="col-2 d-flex justify-content-center">
+                <span class="bg-card-round d-flex justify-content-center align-items-center">
+                  <img src="./assets/arrow-right.svg" alt="">
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 p-4">
+            <div class="col-md-12 d-flex my-card px-4 py-5">
+              <div class="col-10 text-white pe-4">
+                <h4>Secure Your Future</h4>
+                <p class="small m-0">
+                  By getting certified and access to interview call scheduled by us with your potential employer and Ace
+                  the
+                  Interview.
+                </p>
+              </div>
+              <div class="col-2 d-flex justify-content-center">
+                <span class="bg-card-round d-flex justify-content-center align-items-center">
+                  <img src="./assets/arrow-right.svg" alt="">
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('scroll', function () {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 2) {
+        navbar.classList.add('navbar-dark');
+      } else {
+        navbar.classList.remove('navbar-dark');
+      }
+      document.getElementById('ai-job-2').style.transform = `translateY(${window.scrollY * 0.3}px) rotate(15deg)`;
+      document.getElementById('ai-job-3').style.transform = `translateY(${window.scrollY * 0.2}px) rotate(-15deg)`;
+
+      // document.getElementById('ai-job-4').style.transform = `translateY(${window.scrollY * 0.2}px) rotate(-15deg)`;
+      // document.getElementById('ai-job-5').style.transform = `translateY(${window.scrollY * 0.3}px) rotate(15deg)`;
+
+      document.getElementById('ai-job-4').style.transform = `translateY(${window.scrollY * 0.1}px) rotate(-15deg) translateX(${window.scrollY * -0.15}px)`;
+      document.getElementById('ai-job-5').style.transform = `translateY(${window.scrollY * 0.1}px) rotate(15deg) translateX(${window.scrollY * 0.15}px)`;
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
